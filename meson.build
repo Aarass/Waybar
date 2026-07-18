@@ -230,6 +230,8 @@ if is_linux
         'src/modules/memory/linux.cpp',
         'src/modules/power_profiles_daemon.cpp',
         'src/modules/systemd_failed_units.cpp',
+        'src/modules/tmux/tmux.cpp',
+        'src/modules/tmux/window.cpp',
     )
     man_files += files(
         'man/waybar-battery.5.scd',

@@ -131,6 +131,7 @@
 #include "modules/custom_graph.hpp"
 #include "modules/image.hpp"
 #include "modules/temperature.hpp"
+#include "modules/tmux/tmux.hpp"
 #include "modules/user.hpp"
 
 waybar::Factory::Factory(const Bar& bar, const Json::Value& config) : bar_(bar), config_(config) {}
@@ -391,6 +392,9 @@ waybar::AModule* waybar::Factory::makeModule(const std::string& name,
 #endif
     if (ref == "temperature") {
       return new waybar::modules::Temperature(id, config_[name]);
+    }
+    if (ref == "tmux") {
+      return new waybar::modules::Tmux(id, config_[name]);
     }
     if (ref.compare(0, 7, "custom/") == 0 && ref.size() > 7) {
       return new waybar::modules::Custom(ref.substr(7), id, config_[name], bar_.output->name);
